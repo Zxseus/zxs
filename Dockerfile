@@ -1,16 +1,13 @@
-# Using Python Slim-Buster
-FROM vckyouuu/geezprojects:buster
-# Geez-UserBot
-#
-RUN git clone -b Geez-UserBot https://github.com/vckyou/Geez-UserBot /root/userbot
-RUN mkdir /root/userbot/.bin
-RUN pip install --upgrade pip setuptools
-WORKDIR /root/userbot
+FROM mrismanaziz/man-userbot:buster
 
-#Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/vckyou/Geez-UserBot/Geez-UserBot/requirements.txt
+RUN git clone -b Man-Userbot https://github.com/mrismanaziz/Man-Userbot /home/manuserbot/ \
 
-EXPOSE 80 443
+    && chmod 777 /home/manuserbot \
 
-# Finalization
-CMD ["python3","-m","userbot"]
+    && mkdir /home/manuserbot/bin/
+
+COPY ./sample_config.env ./config.env* /home/manuserbot/
+
+WORKDIR /home/manuserbot/
+
+CMD ["python3", "-m", "userbot"]
