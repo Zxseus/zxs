@@ -1,13 +1,13 @@
 FROM mrismanaziz/man-userbot:buster
 
-RUN git clone -b zeploy https://github.com/MatrixBotz/HvN /home/zeploy/ \
+RUN git clone -b main https://github.com/zxseus/Blvck-userbot /home/blvck-userbot/ \
 
-    && chmod 777 /home/zeploy \
+    && chmod 777 /home/blvck-userbot \
 
-    && mkdir /home/zeploy/bin/
+    && mkdir /home/blvck-userbot/bin/
 
-COPY ./sample_config.env ./config.env* /home/zeploy/
+COPY ./sample_config.env ./config.env* /home/blvck-userbot/
 
-WORKDIR /home/zeploy/
+WORKDIR /home/blvck-userbot/
 
 CMD ["python3", "-m", "userbot"]
